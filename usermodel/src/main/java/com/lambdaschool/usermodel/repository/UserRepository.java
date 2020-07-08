@@ -6,14 +6,16 @@ import com.lambdaschool.usermodel.views.UserNameCountEmails;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 /**
  * The CRUD repository connecting User to the rest of the application
  */
-public interface UserRepository extends CrudRepository<User, Long>
+public interface UserRepository extends PagingAndSortingRepository<User, Long>
 {
     /**
      * Find a user based off over username
@@ -90,4 +92,5 @@ public interface UserRepository extends CrudRepository<User, Long>
         String uname,
         long userid,
         long roleid);
+
 }
